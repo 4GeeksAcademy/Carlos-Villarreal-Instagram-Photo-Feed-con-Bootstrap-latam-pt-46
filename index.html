@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Feed</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .photo {
+      width: 100%;
+      height: auto;
+    }
+    
+    .list-view .photo-container {
+    margin-bottom: 10px; /* Espacio entre las imágenes */
+  }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-light bg-light px-3">
+      <a class="navbar-brand" href="#">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="30" height="30" class="d-inline-block align-text-top"><b>Instagram</b>
+      </a>
+      <button class="btn btn-success"> Create a new post</button>
+
+          <!-- Boton desplegable de menu -->
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Option</button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Profile</a></li>
+    <li><a class="dropdown-item" href="#">Accessibility</a></li>
+    <li><a class="dropdown-item" href="#">Privacy and Data</a></li>
+    <li><a class="dropdown-item text-danger" href="#">Log out</a></li>
+  </ul>
+</div>
+      </nav>
+      
+      <!-- Buttons to toggle views -->
+      <div class="container mt-3">
+          <div class="d-flex justify-content-center mb-3">
+              <button class="btn btn-primary me-2" data-bs-toggle="list-view">List view</button>
+              <button class="btn btn-secondary" data-bs-toggle="grid-view">Grid view</button>
+          </div>
+      </div>
+      
+      <!-- Photo Feed -->
+      <div class="container">
+        <div id="photoFeed" class="row g-3">
+            <div class="col-5 col-md-4">
+                <img src="https://m.media-amazon.com/images/I/71yGFEBm53L.jpg" class="photo rounded" alt="Photo 1">
+            </div>
+            <div class="col-5 col-md-4">
+                <img src="https://d3bo0mk5kk7egf.cloudfront.net/imgstore/ElementGalleryItems/wdwmagic-plus/Fullsize/Marvel-Studios_Full_51311.jpg" class="photo rounded" alt="Photo 2">
+            </div>
+            <div class="col-5 col-md-4">
+                <img src="https://pics.filmaffinity.com/the_fantastic_four_first_steps-414419831-mmed.jpg" class="photo rounded" alt="Photo 3">
+            </div>
+            <!-- Resto de las imagenes -->
+            <div class="col-5 col-md-4">
+                <img src="https://www.movieposters.com/cdn/shop/files/captain-america-brave-new-world_2reaj42x_480x.progressive.jpg?v=1736260569" class="photo rounded" alt="Photo 4">
+            </div>
+            <div class="col-5 col-md-4">
+                <img src="https://lumiere-a.akamaihd.net/v1/images/image003_929d0db0.jpeg" class="photo rounded" alt="Photo 5">
+            </div>
+            <div class="col-5 col-md-4">
+                <img src="https://i.pinimg.com/736x/c8/38/d6/c838d6b778c96c8604148d1ec1386c61.jpg" class="photo rounded" alt="Photo 6">
+            </div>
+            <div class="col-5 col-md-4">
+                <img src="https://depor.com/resizer/v2/W6AW6KMKGZHVDB3VAT6YCKTULE.jpg?auth=cec4dff0de21a132636672b2cfe77ad858877e37dfa5a51ba3380f8be5ece5a2&width=620&quality=75&smart=true" class="photo rounded" alt="Photo 7">
+            </div>
+            <div class="col-5 col-md-4">
+                <img src="https://www.rosariocine.com.ar/webfiles/rosariocine/productos/5086/1.jpg" class="photo rounded" alt="Photo 8">
+            </div>
+            <div class="col-5 col-md-4">
+                <img src="https://www.movieposters.com/cdn/shop/products/shangchi_and_the_legend_of_the_ten_rings_500x.jpg?v=1622220347" class="photo rounded" alt="Photo 9">
+              </div>
+        </div>
+    </div>
+    </div>
+
+          <!-- Bootstrap JS -->
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
+        </script>
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+            // Toggle between grid and list views
+  const gridViewBtn = document.querySelector('[data-bs-toggle="grid-view"]');
+  const listViewBtn = document.querySelector('[data-bs-toggle="list-view"]');
+  const photoFeed = document.getElementById('photoFeed');
+
+  gridViewBtn.addEventListener('click', () => {
+    photoFeed.classList.remove('list-view');
+    photoFeed.classList.add('row', 'g-3');
+    const photos = photoFeed.querySelectorAll('.col-12');
+    photos.forEach(photo => {
+      photo.classList.remove('col-12');
+      photo.classList.add('col-6', 'col-md-4');
+    });
+  });
+
+  listViewBtn.addEventListener('click', () => {
+  photoFeed.classList.remove('row', 'g-3');
+  photoFeed.classList.add('list-view'); // Agrega la clase list-view
+  const photos = photoFeed.querySelectorAll('.col-6, .col-md-4');
+  photos.forEach(photo => {
+    photo.classList.remove('col-6', 'col-md-4');
+    photo.classList.add('col-12', 'photo-container'); // Agrega la clase photo-container
+  });
+});
+        </script> 
+</body>
+</html>
