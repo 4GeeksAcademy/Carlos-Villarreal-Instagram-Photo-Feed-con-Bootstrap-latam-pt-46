@@ -115,41 +115,73 @@
               </div>
         </div>
     </div>
-    </div>
 
           <!-- Bootstrap JS -->
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
         </script>
             <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script>
-
-
-            // Toggle between grid and list views
+  <script>
+  // Botones para alternar entre vistas
   const gridViewBtn = document.querySelector('[data-bs-toggle="grid-view"]');
   const listViewBtn = document.querySelector('[data-bs-toggle="list-view"]');
   const photoFeed = document.getElementById('photoFeed');
 
+  // Datos de las imágenes: títulos y descripciones
+  const imageData = [
+    { title: "Deadpool y Wolverine", description: "Una emocionante aventura juntos" },
+    { title: "The Marvels", description: "El trío dinámico de heroínas de Marvel" },
+    { title: "Los 4 Fantásticos", description: "La primera familia de Marvel vuelve a los cines" },
+    { title: "Capitán América: Brave New World", description: "La cuarta entrega del centinela de la libertad protagonizada ahora por el heroe Falcon portando el titulo del Capitán America" },
+    { title: "Thunderbolts*", description: "La reunión de un equipo imposible para detener una amenaza que los supera a ellos" },
+    { title: "Blade", description: "Llega la nueva entrega del cazavampiros favorito de Marvel, protagonizada por Mahershala Ali" },
+    { title: "Doctor Strange 2", description: "Una nueva amenaza ha apercido poninendo en peligro nuestra realidad y la de todos los mundo, podrá el hechiero supremo detenerlo?" },
+    { title: "Guardianes de la Galaxia Vol.3", description: "Una fántastica y última aventura de nuesrto grupo favorito del espacio reunidos una vez más" },
+    { title: "Shang-Chi", description: "Un nuevo heroes llega al universo Marvel, de dónde será, cuál es su origen? descubranlo próximamente" },
+  ];
+
+  // Vista de cuadrícula
   gridViewBtn.addEventListener('click', () => {
     photoFeed.classList.remove('list-view');
     photoFeed.classList.add('row', 'g-1');
     const photos = photoFeed.querySelectorAll('.col-12');
-    photos.forEach(photo => {
+    photos.forEach((photo, index) => {
+      // Elimina el formato de tarjeta
+      const card = photo.querySelector('.card');
+      if (card) {
+        const img = card.querySelector('img');
+        photo.innerHTML = '';
+        photo.appendChild(img);
+      }
       photo.classList.remove('col-12');
       photo.classList.add('col-6', 'col-md-4');
     });
   });
 
+  // Vista de lista
   listViewBtn.addEventListener('click', () => {
-  photoFeed.classList.remove('row', 'g-3');
-  photoFeed.classList.add('list-view'); // Agrega la clase list-view
-  const photos = photoFeed.querySelectorAll('.col-6, .col-md-4');
-  photos.forEach(photo => {
-    photo.classList.remove('col-6', 'col-md-4');
-    photo.classList.add('col-12', 'photo-container'); // Agrega la clase photo-container
+    photoFeed.classList.remove('row', 'g-1');
+    photoFeed.classList.add('list-view');
+    const photos = photoFeed.querySelectorAll('.col-6, .col-md-4');
+    photos.forEach((photo, index) => {
+      photo.classList.remove('col-6', 'col-md-4');
+      photo.classList.add('col-12');
+
+      // Agrega el formato de tarjeta con título y descripción únicos
+      const img = photo.querySelector('img');
+      const { title, description } = imageData[index]; // Obtiene el título y descripción de la imagen
+      photo.innerHTML = `
+        <div class="card">
+          <img src="${img.src}" class="card-img-top" alt="${img.alt}">
+          <div class="card-body">
+            <h5 class="card-title">${title}</h5>
+            <p class="card-text">${description}</p>
+          </div>
+        </div>
+      `;
+    });
   });
-});
-        </script> 
+</script>
 </body>
 </html>
