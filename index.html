@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,176 +13,173 @@
       width: 100%;
       height: auto;
     }
-    
+
     .list-view .photo-container {
-    margin-bottom: 30px; /* Espacio entre las imágenes */
-  }
+      margin-bottom: 30px;
+      /* Espacio entre las imágenes */
+    }
   </style>
 </head>
+
 <body>
 
   <!-- Navbar -->
   <nav class="navbar navbar-light bg-light px-3">
-      <a class="navbar-brand" href="#">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="30" height="30" class="d-inline-block align-text-top"><b>Instagram</b>
-      </a>
-       <!-- Botón para abrir el modal -->
-       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createPostModal"> Create a new post</button>
+    <a class="navbar-brand" href="#">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="30"
+        height="30" class="d-inline-block align-text-top"><b>Instagram</b>
+    </a>
+    <!-- Botón para abrir el modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createPostModal"> Create a new
+      post</button>
 
-        <!-- Modal -->
-  <div class="modal fade" id="createPostModal" tabindex="-1" aria-labelledby="createPostModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="createPostModalLabel">Create a new post</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <!-- Cuadro de texto para el caption -->
-          <div class="mb-3">
-            <label for="captionInput" class="form-label"><b>Caption:</b></label>
-            <textarea class="form-control" id="captionInput" rows="2" placeholder="Add the caption of your post here"></textarea>
+    <!-- Modal -->
+    <div class="modal fade" id="createPostModal" tabindex="-1" aria-labelledby="createPostModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="createPostModalLabel">Create a new post</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-           <!-- Botones de cámara y ubicación -->
-          <div class="d-flex justify-content-start gap-3">
-            <button type="button" class="btn btn-outline-secondary">
-              <i class="bi bi-camera"></i>Camera
-            </button>
-            <button type="button" class="btn btn-outline-secondary">
-              <i class="bi bi-geo-alt"></i>Location
-            </button>
+          <div class="modal-body">
+            <!-- Cuadro de texto para el caption -->
+            <div class="mb-3">
+              <label for="captionInput" class="form-label"><b>Caption:</b></label>
+              <textarea class="form-control" id="captionInput" rows="2"
+                placeholder="Add the caption of your post here"></textarea>
+            </div>
+            <!-- Botones de cámara y ubicación -->
+            <div class="d-flex justify-content-start gap-3">
+              <button type="button" class="btn btn-outline-secondary">
+                <i class="bi bi-camera"></i>Camera
+              </button>
+              <button type="button" class="btn btn-outline-secondary">
+                <i class="bi bi-geo-alt"></i>Location
+              </button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <!-- Botones Close y Publish -->
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-success dropdown-toogle">Publish</button>
           </div>
         </div>
-        <div class="modal-footer">
-          <!-- Botones Close y Publish -->
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-success dropdown-toogle" >Publish</button>
+      </div>
+    </div>
+
+    <!-- Boton desplegable de menu -->
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+        aria-expanded="false">Option</button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><a class="dropdown-item" href="#">Accessibility</a></li>
+        <li><a class="dropdown-item" href="#">Privacy and Data</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item text-danger" href="#">Log out</a></li>
+      </ul>
+    </div>
+  </nav>
+
+      <!-- Buttons to toggle views -->
+<div class="d-flex justify-content-center align-items-center my-3">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="list-view-tab" data-bs-toggle="tab" data-bs-target="#list-view" type="button"
+        role="tab" aria-controls="list-view" aria-selected="true">List View</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="grid-view-tab" data-bs-toggle="tab" data-bs-target="#grid-view" type="button"
+        role="tab" aria-controls="grid-view" aria-selected="false">Grid View</button>
+    </li>
+  </ul>
+</div>
+
+
+<!-- Photo Feed -->
+<div class="tab-content" id="myTabContent">
+  <!-- List View -->
+  <div class="tab-pane fade show active list-view" id="list-view" role="tabpanel" aria-labelledby="list-view-tab">
+    <div class="container">
+      <div class="row g-1">
+        <div class="col-10 d-flex justify-content-center">
+          <img src="https://content.clara.es/medio/2024/07/31/aries_8bd642b0_240731193915_800x800.webp" class="photo rounded" alt="Photo 1">
+        </div>
+        <div class="col-10 d-flex justify-content-center">
+          <img src="https://content.clara.es/medio/2024/07/31/tauro_a5170ea7_240731193941_800x800.webp" class="photo rounded" alt="Photo 2">
+        </div>
+        <div class="col-10 d-flex justify-content-center">
+          <img src="https://content.clara.es/medio/2024/07/31/geminis_df51c2c1_240731194006_800x800.webp" class="photo rounded" alt="Photo 3">
+        </div>
+        <div class="col-10 d-flex justify-content-center">
+          <img src="https://content.clara.es/medio/2024/07/31/sagitario_1f7fa9ac_240731194223_800x800.webp" class="photo rounded" alt="Photo 4">
+        </div>
+        <div class="col-10 d-flex justify-content-center">
+          <img src="https://content.clara.es/medio/2024/07/31/escorpio_d80d7ce2_240731194200_800x800.webp" class="photo rounded" alt="Photo 5">
+        </div>
+        <div class="col-10 d-flex justify-content-center">
+          <img src="https://content.clara.es/medio/2024/07/31/libra_9646fce1_240731194142_800x800.webp" class="photo rounded" alt="Photo 6">
+        </div>
+        <div class="col-10 d-flex justify-content-center">
+          <img src="https://content.clara.es/medio/2024/07/31/leo_74024d16_240731194052_800x800.webp" class="photo rounded" alt="Photo 7">
+        </div>
+        <div class="col-10 d-flex justify-content-center">
+          <img src="https://content.clara.es/medio/2024/07/31/virgo_d5838238_240731194119_800x800.webp" class="photo rounded" alt="Photo 8">
+        </div>
+        <div class="col-10 d-flex justify-content-center">
+          <img src="https://content.clara.es/medio/2024/07/31/piscis_07958aa6_240731194332_800x800.webp" class="photo rounded" alt="Photo 8">
         </div>
       </div>
     </div>
   </div>
 
-          <!-- Boton desplegable de menu -->
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Option</button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Profile</a></li>
-    <li><a class="dropdown-item" href="#">Accessibility</a></li>
-    <li><a class="dropdown-item" href="#">Privacy and Data</a></li>
-    <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item text-danger" href="#">Log out</a></li>
-  </ul>
-</div>
-      </nav>
-      
-      <!-- Buttons to toggle views -->
-      <div class="container mt-3">
-          <div class="d-flex justify-content-center mb-3">
-              <button class="btn btn-primary me-2" data-bs-toggle="list-view">List view</button>
-              <button class="btn btn-secondary" data-bs-toggle="grid-view">Grid view</button>
-          </div>
+  <!-- Grid View -->
+  <div class="tab-pane fade" id="grid-view" role="tabpanel" aria-labelledby="grid-view-tab">
+    <div class="container">
+      <div id="photoFeed" class="row g-2">
+        <div class="col-1 col-md-4">
+          <img src="https://content.clara.es/medio/2024/07/31/aries_8bd642b0_240731193915_800x800.webp" class="photo rounded" alt="Photo 1">
+        </div>
+        <div class="col-1 col-md-4">
+          <img src="https://content.clara.es/medio/2024/07/31/tauro_a5170ea7_240731193941_800x800.webp" class="photo rounded" alt="Photo 2">
+        </div>
+        <!-- Resto de las imágenes -->
+        <div class="col-1 col-md-4">
+          <img src="https://content.clara.es/medio/2024/07/31/geminis_df51c2c1_240731194006_800x800.webp" class="photo rounded" alt="Photo 3">
+        </div>
+        <div class="col-1 col-md-4">
+          <img src="https://content.clara.es/medio/2024/07/31/sagitario_1f7fa9ac_240731194223_800x800.webp" class="photo rounded" alt="Photo 4">
+        </div>
+        <div class="col-1 col-md-4">
+          <img src="https://content.clara.es/medio/2024/07/31/escorpio_d80d7ce2_240731194200_800x800.webp" class="photo rounded" alt="Photo 5">
+        </div>
+        <div class="col-1 col-md-4">
+          <img src="https://content.clara.es/medio/2024/07/31/libra_9646fce1_240731194142_800x800.webp" class="photo rounded" alt="Photo 6">
+        </div>
+        <div class="col-1 col-md-4">
+          <img src="https://content.clara.es/medio/2024/07/31/leo_74024d16_240731194052_800x800.webp" class="photo rounded" alt="Photo 7">
+        </div>
+        <div class="col-1 col-md-4">
+          <img src="https://content.clara.es/medio/2024/07/31/virgo_d5838238_240731194119_800x800.webp" class="photo rounded" alt="Photo 8">
+        </div>
+        <div class="col-1 col-md-4">
+          <img src="https://content.clara.es/medio/2024/07/31/piscis_07958aa6_240731194332_800x800.webp" class="photo rounded" alt="Photo 9">
+        </div>
       </div>
-      
-      <!-- Photo Feed -->
-      <div class="container">
-        <div id="photoFeed" class="row g-1">
-            <div class="col-5 col-md-4">
-                <img src="https://m.media-amazon.com/images/I/71yGFEBm53L.jpg" class="photo rounded" alt="Photo 1">
-            </div>
-            <div class="col-5 col-md-4">
-                <img src="https://d3bo0mk5kk7egf.cloudfront.net/imgstore/ElementGalleryItems/wdwmagic-plus/Fullsize/Marvel-Studios_Full_51311.jpg" class="photo rounded" alt="Photo 2">
-            </div>
-            <div class="col-5 col-md-4">
-                <img src="https://pics.filmaffinity.com/the_fantastic_four_first_steps-414419831-mmed.jpg" class="photo rounded" alt="Photo 3">
-            </div>
-            <!-- Resto de las imagenes -->
-            <div class="col-5 col-md-4">
-                <img src="https://www.movieposters.com/cdn/shop/files/captain-america-brave-new-world_2reaj42x_480x.progressive.jpg?v=1736260569" class="photo rounded" alt="Photo 4">
-            </div>
-            <div class="col-5 col-md-4">
-                <img src="https://lumiere-a.akamaihd.net/v1/images/image003_929d0db0.jpeg" class="photo rounded" alt="Photo 5">
-            </div>
-            <div class="col-5 col-md-4">
-                <img src="https://i.pinimg.com/736x/c8/38/d6/c838d6b778c96c8604148d1ec1386c61.jpg" class="photo rounded" alt="Photo 6">
-            </div>
-            <div class="col-5 col-md-4">
-                <img src="https://depor.com/resizer/v2/W6AW6KMKGZHVDB3VAT6YCKTULE.jpg?auth=cec4dff0de21a132636672b2cfe77ad858877e37dfa5a51ba3380f8be5ece5a2&width=620&quality=75&smart=true" class="photo rounded" alt="Photo 7">
-            </div>
-            <div class="col-5 col-md-4">
-                <img src="https://www.rosariocine.com.ar/webfiles/rosariocine/productos/5086/1.jpg" class="photo rounded" alt="Photo 8">
-            </div>
-            <div class="col-5 col-md-4">
-                <img src="https://www.movieposters.com/cdn/shop/products/shangchi_and_the_legend_of_the_ten_rings_500x.jpg?v=1622220347" class="photo rounded" alt="Photo 9">
-              </div>
-        </div>
     </div>
+  </div>
+</div>
 
-          <!-- Bootstrap JS -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
-        </script>
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script>
-  // Botones para alternar entre vistas
-  const gridViewBtn = document.querySelector('[data-bs-toggle="grid-view"]');
-  const listViewBtn = document.querySelector('[data-bs-toggle="list-view"]');
-  const photoFeed = document.getElementById('photoFeed');
 
-  // Datos de las imágenes: títulos y descripciones
-  const imageData = [
-    { title: "Deadpool y Wolverine", description: "Una emocionante aventura juntos" },
-    { title: "The Marvels", description: "El trío dinámico de heroínas de Marvel" },
-    { title: "Los 4 Fantásticos", description: "La primera familia de Marvel vuelve a los cines" },
-    { title: "Capitán América: Brave New World", description: "La cuarta entrega del centinela de la libertad protagonizada ahora por el heroe Falcon portando el titulo del Capitán America" },
-    { title: "Thunderbolts*", description: "La reunión de un equipo imposible para detener una amenaza que los supera a ellos" },
-    { title: "Blade", description: "Llega la nueva entrega del cazavampiros favorito de Marvel, protagonizada por Mahershala Ali" },
-    { title: "Doctor Strange 2", description: "Una nueva amenaza ha apercido poninendo en peligro nuestra realidad y la de todos los mundo, podrá el hechiero supremo detenerlo?" },
-    { title: "Guardianes de la Galaxia Vol.3", description: "Una fántastica y última aventura de nuesrto grupo favorito del espacio reunidos una vez más" },
-    { title: "Shang-Chi", description: "Un nuevo heroes llega al universo Marvel, de dónde será, cuál es su origen? descubranlo próximamente" },
-  ];
-
-  // Vista de cuadrícula
-  gridViewBtn.addEventListener('click', () => {
-    photoFeed.classList.remove('list-view');
-    photoFeed.classList.add('row', 'g-1');
-    const photos = photoFeed.querySelectorAll('.col-12');
-    photos.forEach((photo, index) => {
-      // Elimina el formato de tarjeta
-      const card = photo.querySelector('.card');
-      if (card) {
-        const img = card.querySelector('img');
-        photo.innerHTML = '';
-        photo.appendChild(img);
-      }
-      photo.classList.remove('col-12');
-      photo.classList.add('col-6', 'col-md-4');
-    });
-  });
-
-  // Vista de lista
-  listViewBtn.addEventListener('click', () => {
-    photoFeed.classList.remove('row', 'g-1');
-    photoFeed.classList.add('list-view');
-    const photos = photoFeed.querySelectorAll('.col-6, .col-md-4');
-    photos.forEach((photo, index) => {
-      photo.classList.remove('col-6', 'col-md-4');
-      photo.classList.add('col-12');
-
-      // Agrega el formato de tarjeta con título y descripción únicos
-      const img = photo.querySelector('img');
-      const { title, description } = imageData[index]; // Obtiene el título y descripción de la imagen
-      photo.innerHTML = `
-        <div class="card">
-          <img src="${img.src}" class="card-img-top" alt="${img.alt}">
-          <div class="card-body">
-            <h5 class="card-title">${title}</h5>
-            <p class="card-text">${description}</p>
-          </div>
-        </div>
-      `;
-    });
-  });
-</script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
