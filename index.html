@@ -8,6 +8,7 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <style>
     .photo {
       width: 100%;
@@ -18,20 +19,33 @@
       margin-bottom: 30px;
       /* Espacio entre las imágenes */
     }
+
+    .card {
+      margin: 0 auto; /* Centra el card */
+      max-width: 500px; /* Ajusta el ancho máximo del card */
+    }
+
+    .card-img-top {
+      max-height: 500px; /* Ajusta la altura máxima de la imagen */
+      object-fit: cover; /* Asegura que la imagen mantenga su proporción */
+    }
+
+    .card-body {
+      padding: 0.5rem; /* Reduce el padding del cuerpo del card */
+    }
   </style>
 </head>
 
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-light bg-light px-3">
-    <a class="navbar-brand" href="#">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="30"
-        height="30" class="d-inline-block align-text-top"><b>Instagram</b>
-    </a>
-    <!-- Botón para abrir el modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createPostModal"> Create a new
-      post</button>
+	<nav class="navbar navbar-light bg-light px-3">
+  	<a class="navbar-brand" href="#">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="30" height="30" class="d-inline-block align-text-top"><b>Instagram</b>
+  </a>
+  <div class="ms-auto d-flex align-items-center gap-2">
+      <!-- Botón para abrir el modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createPostModal">Create a new post</button>
 
     <!-- Modal -->
     <div class="modal fade" id="createPostModal" tabindex="-1" aria-labelledby="createPostModalLabel"
@@ -68,22 +82,20 @@
       </div>
     </div>
 
-    <!-- Boton desplegable de menu -->
-    <div class="dropdown position-static">
+   <!-- Botón desplegable de menú -->
+    <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Option</button>
       <ul class="dropdown-menu dropdown-menu-end">
-          <li><a class="dropdown-item" href="#">Profile</a></li>
-          <li><a class="dropdown-item" href="#">Accessibility</a></li>
-          <li><a class="dropdown-item" href="#">Privacy and Data</a></li>
-          <li>
-              <hr class="dropdown-divider">
-          </li>
-          <li><a class="dropdown-item text-danger" href="#">Log out</a></li>
+		<li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Profile</a></li>
+		<li><a class="dropdown-item" href="#"><i class="bi bi-universal-access"></i> Accessibility</a></li>
+		<li><a class="dropdown-item" href="#"><i class="bi bi-shield-lock"></i> Privacy and Data</a></li>
+		<li><a class="dropdown-item text-danger" href="#"><i class="bi bi-box-arrow-right"></i> Log out</a></li>
       </ul>
+    </div>
   </div>
 </nav>
 
-      <!-- Buttons to toggle views -->
+  <!-- Buttons to toggle views -->
 <div class="d-flex justify-content-center align-items-center my-3">
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
@@ -98,26 +110,27 @@
 </div>
 
 
+
 <!-- Photo Feed -->
 <div class="tab-content" id="myTabContent">
 
    <!-- List View -->
 <div class="tab-pane fade show active" id="list-view" role="tabpanel" aria-labelledby="list-view-tab">
   <div class="container">
-    <div class="row g-1">
-      <!-- Card 1 -->
-      <div class="col-12 mb-3">
-        <div class="card">
-          <img src="https://content.clara.es/medio/2024/07/31/aries_8bd642b0_240731193915_800x800.webp" class="card-img-top" alt="Photo 1">
-          <div class="card-body">
-            <h5 class="card-title">729 Likes</h5>
-            <p class="card-text">Esta constelación representa al carnero cuyo vellocino de oro fue buscado por Frixo y Hele para escapar de su madrastra Ino. En agradecimiento, Zeus colocó a Aries entre las estrellas.</p>
-          </div>
-        </div>
-      </div>
+    <div class="row g-1 justify-content-center">
+     <!-- Card 1 -->
+<div class="col-lg-7">
+  <div class="card">
+    <img src="https://content.clara.es/medio/2024/07/31/aries_8bd642b0_240731193915_800x800.webp" class="card-img-top" alt="Photo 1">
+    <div class="card-body">
+      <h5 class="card-title">729 Likes</h5>
+      <p class="card-text">Esta constelación representa al carnero cuyo vellocino de oro fue buscado por Frixo y Hele para escapar de su madrastra Ino. En agradecimiento, Zeus colocó a Aries entre las estrellas.</p>
+    </div>
+  </div>
+</div>
 
       <!-- Card 2 -->
-      <div class="col-12 mb-3">
+      <div class="col-lg-7">
         <div class="card">
           <img src="https://content.clara.es/medio/2024/07/31/tauro_a5170ea7_240731193941_800x800.webp" class="card-img-top" alt="Photo 2">
           <div class="card-body">
@@ -127,7 +140,7 @@
         </div>
       </div>
       <!-- Card 3 -->
-      <div class="col-12 mb-3">
+      <div class="col-lg-7">
         <div class="card">
           <img src="https://content.clara.es/medio/2024/07/31/geminis_df51c2c1_240731194006_800x800.webp" class="card-img-top" alt="Photo 3">
           <div class="card-body">
@@ -137,7 +150,7 @@
         </div>
       </div>
       <!-- Card 4 -->
-      <div class="col-12 mb-3">
+      <div class="col-lg-7">
         <div class="card">
           <img src="https://content.clara.es/medio/2024/07/31/sagitario_1f7fa9ac_240731194223_800x800.webp" class="card-img-top" alt="Photo 4">
           <div class="card-body">
@@ -147,7 +160,7 @@
         </div>
       </div>
       <!-- Card 5 -->
-      <div class="col-12 mb-3">
+      <div class="col-lg-7">
         <div class="card">
           <img src="https://content.clara.es/medio/2024/07/31/escorpio_d80d7ce2_240731194200_800x800.webp" class="card-img-top" alt="Photo 5">
           <div class="card-body">
@@ -157,7 +170,7 @@
         </div>
       </div>
       <!-- Card 6 -->
-      <div class="col-12 mb-3">
+      <div class="col-lg-7">
         <div class="card">
           <img src="https://content.clara.es/medio/2024/07/31/libra_9646fce1_240731194142_800x800.webp" class="card-img-top" alt="Photo 6">
           <div class="card-body">
@@ -167,7 +180,7 @@
         </div>
       </div>
       <!-- Card 7 -->
-      <div class="col-12 mb-3">
+      <div class="col-lg-7">
         <div class="card">
           <img src="https://content.clara.es/medio/2024/07/31/leo_74024d16_240731194052_800x800.webp" class="card-img-top" alt="Photo 7">
           <div class="card-body">
@@ -177,7 +190,7 @@
         </div>
       </div>
       <!-- Card 8 -->
-      <div class="col-12 mb-3">
+      <div class="col-lg-7">
         <div class="card">
           <img src="https://content.clara.es/medio/2024/07/31/virgo_d5838238_240731194119_800x800.webp" class="card-img-top" alt="Photo 8">
           <div class="card-body">
@@ -187,7 +200,7 @@
         </div>
       </div>
       <!-- Card 9 -->
-      <div class="col-12 mb-3">
+      <div class="col-lg-7">
         <div class="card">
           <img src="https://content.clara.es/medio/2024/07/31/piscis_07958aa6_240731194332_800x800.webp" class="card-img-top" alt="Photo 9">
           <div class="card-body">
